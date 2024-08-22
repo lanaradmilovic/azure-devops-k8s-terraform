@@ -19,7 +19,7 @@ steps:
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connection'
     backendAzureRmTenantId: '4bd7928d-756a-4396-8d8f-803e40dd52db'
-    backendAzureRmSubscriptionId: '42f2fbbc-570c-4c13-a737-a75374bf8a3b'
+    backendAzureRmSubscriptionId: 'd593673b-0e4f-4d3b-96da-f863d69d9470'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'tf-backend-rg'
     backendAzureRmResourceGroupLocation: 'westeurope'
