@@ -28,7 +28,7 @@ steps:
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/configuration/iaac/azure/backend'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath) -var=$(tenant_id)'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath) -var tenant_id=$(tenant_id)'
 
 - task: TerraformCLI@2
   inputs:
