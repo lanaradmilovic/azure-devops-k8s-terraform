@@ -15,8 +15,8 @@ variable location {
   default = "westeurope"
 }
 variable "storage_account" {
-  default = "tfstatestorage"
+  default = "tfstatestoragelanarad"
 }
 variable "storage_container" {
-  default = "tfstatecontainer"
+  default = "tfstatecontainerlanarad"
 }
