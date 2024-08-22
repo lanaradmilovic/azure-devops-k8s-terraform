@@ -29,3 +29,6 @@ variable resource_group {
 variable "vm_size" {
   default = "standard_b2ms"
 }
+variable "storage_account" {
+  default = "tf-state-storage"
+}
