@@ -11,6 +11,24 @@ steps:
   name: publickey
   inputs:
    secureFile: 'azure_rsa_2'
+- task: TerraformCLI@2
+  inputs:
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/configuration/iaac/azure/backend'
+    backendType: 'azurerm'
+    backendServiceArm: 'azure-resource-manager-service-connection'
+    backendAzureRmTenantId: '4bd7928d-756a-4396-8d8f-803e40dd52db'
+    backendAzureRmSubscriptionId: 'd593673b-0e4f-4d3b-96da-f863d69d9470'
+    backendAzureRmResourceGroupName: 'tf-backend-rg'
+    backendAzureRmStorageAccountName: 'storageacclanarad'
+    backendAzureRmContainerName: 'storageacclanaradcontainer'
+    backendAzureRmKey: 'storage-dev.tfstate'
+
+- task: TerraformCLI@2
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/configuration/iaac/azure/backend'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath) -var tenant_id=$(tenant_id)'
 
 - task: TerraformCLI@2
   inputs:
@@ -20,18 +38,10 @@ steps:
     backendServiceArm: 'azure-resource-manager-service-connection'
     backendAzureRmTenantId: '4bd7928d-756a-4396-8d8f-803e40dd52db'
     backendAzureRmSubscriptionId: 'd593673b-0e4f-4d3b-96da-f863d69d9470'
-    ensureBackend: true
-    backendAzureRmResourceGroupName: 'tf-backend-rg'
-    backendAzureRmResourceGroupLocation: 'westeurope'
-    backendAzureRmStorageAccountName: 'storageacclanarad'
-    backendAzureRmContainerName: 'storageacclanaradcontainer'
-    backendAzureRmKey: 'k8s-dev.tfstate'
-    allowTelemetryCollection: true
     
 - task: TerraformCLI@2
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=${client_id} -var client_secret=${client_secret} -var ssh_public_key(publickey.secureFilePath)'
-    allowTelemetryCollection: true
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
 
