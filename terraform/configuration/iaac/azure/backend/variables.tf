@@ -1,6 +1,7 @@
 variable client_id {}
 variable client_secret {}
 variable tenant_id {}
+variable subscription_id {}
 
 variable resource_group {
   default = "k8s_state_storage_r_g"
