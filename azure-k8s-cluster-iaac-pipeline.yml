@@ -21,7 +21,7 @@ steps:
     backendServiceArm: 'azure-resource-manager-service-connection'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'backend-tf-rg'
-    backendAzureRmResourceGroupLocation: 'westeurope'
+    backendAzureRmResourceGroupLocation: 'northeurope'
     backendAzureRmStorageAccountName: 'storageaccountlana1'
     backendAzureRmContainerName: 'storageaccountcontainerlana1'
     backendAzureRmKey: 'k8s-dev.tfstate'
