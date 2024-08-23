@@ -15,8 +15,13 @@ steps:
 
 - task: TerraformCLI@2
   inputs:
+    command: 'destroy'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/configuration/iaac/azure/kubernetes'
+
+- task: TerraformCLI@2
+  inputs:
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)//terraform/configuration/iaac/azure/kubernetes'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/configuration/iaac/azure/kubernetes'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connection'
     ensureBackend: true
@@ -25,6 +30,7 @@ steps:
     backendAzureRmStorageAccountName: 'storageaccountlana1'
     backendAzureRmContainerName: 'storageaccountcontainerlana1'
     backendAzureRmKey: 'k8s-dev.tfstate'
+
 - task: TerraformCLI@2
   inputs:
     command: 'apply'
