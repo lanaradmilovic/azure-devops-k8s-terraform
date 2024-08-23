@@ -25,6 +25,7 @@ steps:
     backendAzureRmStorageAccountName: 'storageaccountlana2'
     backendAzureRmContainerName: 'storageaccountcontainerlana2'
     backendAzureRmKey: 'k8s-dev.tfstate'
+    commandOptions: '-reconfigure'
 
 - task: TerraformCLI@2
   inputs:
