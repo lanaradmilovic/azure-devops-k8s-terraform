@@ -12,7 +12,7 @@ variable environment {
 }
 
 variable location {
-  default = "westeurope"
+  default = "northeurope"
 }
 variable "storage_account" {
   default = "tfstatestoragelanarad"
